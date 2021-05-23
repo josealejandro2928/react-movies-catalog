@@ -3,6 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App/App';
 import reportWebVitals from './reportWebVitals';
+import axios from 'axios';
+
+const API_KEY = '4c8bc95958dd9c067669abb351d5bd28';
+axios.interceptors.request.use(
+  (config) => {
+    config.params = { ...config.params, api_key: API_KEY };
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
 ReactDOM.render(
   <React.StrictMode>
