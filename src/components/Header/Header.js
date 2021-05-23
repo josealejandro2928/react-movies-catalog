@@ -7,7 +7,7 @@ const Header = (props) => {
     <div className='Header'>
       <div className='logo-container'>
         <img className='logo' src={logo} alt='logo' />
-        <h3>React Movies Catalog</h3>
+        <h3>React: Movies Catalogue</h3>
       </div>
       <div className='form'>
         <input
