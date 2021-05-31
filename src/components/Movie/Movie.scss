@@ -7,6 +7,13 @@
     position: relative;
     overflow: hidden;
     border-radius: 4px;
+    cursor: pointer;
+
+    .link {
+        color: unset;
+        text-decoration: unset;
+    }
+
 
     img {
         width: 100%;
@@ -56,7 +63,8 @@
         max-height: 100%;
         transform: translateY(101%);
         transition: transform 0.3s ease;
-        h4{
+
+        h4 {
             margin: 4px 0px;
             opacity: .8;
         }

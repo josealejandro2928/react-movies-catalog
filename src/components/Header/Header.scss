@@ -37,9 +37,10 @@
         border-radius: 50px;
         padding: 0.5rem 1rem;
         color: #fff;
+        min-width: 200px;
 
         &::placeholder {
-            color: #7378c5;
+            color: rgba(255, 255, 255, 0.331);
         }
 
         &:focus {

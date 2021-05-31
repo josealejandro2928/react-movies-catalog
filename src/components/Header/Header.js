@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Header.scss';
 import logo from '../../logo.svg';
 import Button from 'react-bootstrap/Button';
@@ -6,6 +6,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 
 const Header = (props) => {
+  let searchText = useRef('');
   return (
     <div className='Header'>
       <div className='logo-container'>
@@ -16,32 +17,30 @@ const Header = (props) => {
         <InputGroup>
           <FormControl
             className='search'
-            placeholder='Search...'
-            aria-label="Recipient's username"
+            placeholder='Type something...'
+            aria-label='search'
             aria-describedby='basic-addon2'
+            type='search'
+            onInput={(e) => (searchText = e.target.value)}
           />
           <InputGroup.Append>
             <Button
+              onClick={() => onSearch()}
               style={{
-                'border-top-right-radius': '16px',
-                'border-bottom-right-radius': '16px',
+                borderTopRightRadius: '16px',
+                borderBottomRightRadius: '16px',
               }}
-              variant='primary'
+              variant='dark'
             >
-              <i className="fa fa-search"></i>
+              <i className='fa fa-search'></i>
             </Button>
           </InputGroup.Append>
         </InputGroup>
-        {/* <input
-          onChange={(e) => {
-            props.onChangeQuery(e.target.value);
-          }}
-          type='search'
-          placeholder='Search...'
-          className='search'
-        /> */}
       </div>
     </div>
   );
+  function onSearch() {
+    props.onChangeQuery(searchText);
+  }
 };
 export default Header;
